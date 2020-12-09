@@ -1,9 +1,9 @@
 {
-  "url":"", // Input base URL you wish to scrape urls from, Example: "http://bit.ly". 
-  "prePath": "", // Input path before the ID of the url.
-  "postPath": "", // Input path after the ID of the url. 
-  "urlCount": "", // Input amount of URL's the program will return before it stops.
-  "threadCount": "", // Input amount of instances of the program will run simultaneously.
-  "IDLength": "", // Input Length of the url ID.
-  "IDCharList": "" // WIP Currently non functional, program defaults to base 64 characterset.
+  "url":"", /* Input base URL you wish to scrape urls from, Example: "http://bit.ly". */
+  "prePath": "", /* Input path before the ID of the url. */
+  "postPath": "", /* Input path after the ID of the url. */
+  "urlCount": "", /* Input amount of URL's the program will return before it stops. */
+  "threadCount": "", /* Input amount of instances of the program will run simultaneously. */
+  "IDLength": "", /* Input Length of the url ID. */
+  "IDCharList": "" /* WIP Currently non functional, program defaults to base 64 characterset. */
 }
