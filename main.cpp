@@ -7,7 +7,7 @@
 #include "./picojson.h"
 using namespace std;
 
-const string version="v2"; //Program version.
+const string version="v3"; //Program version.
 vector<string> compa;
 int compLen=64;
 bool allFound=false;
@@ -31,8 +31,8 @@ void getVid(){
   picojson::value::array& ipList=plist.get("ipList").get<picojson::array>();
   picojson::value::array& portList=plist.get("portList").get<picojson::array>();
   do{
-    if(compa.size()<compLen){}else{
     if(allFound==true)return;
+    if(compa.size()<compLen){}else{
     try{
       ++a;
       httplib::Client cli(&baseUrl[0]);
@@ -48,8 +48,8 @@ void getVid(){
       //if(a==5000)url=prePath+"qVXlIaos37s"+postPath;
       auto res=cli.Get(&url[0]);
       stat=res->status;
-      if(stat==404||stat==403)/*cout<<url+" "<<stat<<" "<<a<<"\n"*/;else if(allFound==false){b++;cout<<"URL found: "+baseUrl+url+" Code: "<<stat<<"\n";};
-      if(b>=urlCount){allFound=true;}
+      if(stat==404||stat==403)/*cout<<url+" "<<stat<<" "<<a<<"\n"*/;else if(allFound==false){b++;cout<<"URL found: "+baseUrl+url+" Code: "+to_string(stat)+"\n";}
+      if(b>urlCount){allFound=true;}
     }
     catch(exception& e){
     }}
@@ -74,9 +74,7 @@ int main(){
   urlCount=stoi(config.get("urlCount").get<string>());
   picojson::array comp=config.get("IDCharList").get<picojson::array>();
   compLen=comp.size();
-  for(int i=0;i<compLen;++i)  {
-    compa.push_back(comp[i].serialize().substr(1,1));
-  }
+  for(int i=0;i<compLen;++i)compa.push_back(comp[i].serialize().substr(1,1));
   srand(time(NULL));
   cout<<"Detected "<<nthread<<" threads.\n";
   vector<thread> threads;
