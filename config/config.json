@@ -5,5 +5,5 @@
   "urlCount": "", /* Input amount of URL's the program will return before it stops. */
   "threadCount": "", /* Input amount of instances of the program will run simultaneously. */
   "IDLength": "", /* Input Length of the url ID. */
-  "IDCharList": "" /* WIP Currently non functional, program defaults to base 64 characterset. */
+  "IDCharList": "" /* Character list for the id generator. */
 }
